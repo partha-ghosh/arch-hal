@@ -14,8 +14,8 @@ efi = "/dev/sda5"
 root = "/dev/sda6"
 home = "/dev/sda6"
 
-# cpu = "intel"
-cpu = "amd"
+cpu = "intel"
+# cpu = "amd"
 
 hostname = "hal"
 username = "partha"
@@ -29,10 +29,11 @@ services = [
     "lightdm.service",
     "cups.service",
     "fstrim.timer",
-    "nvidia-suspend.service",
-    "nvidia-resume.service",
-    "nvidia-hibernate.service",
-    "ntpd.service",
+    
+    #"nvidia-suspend.service",
+    #"nvidia-resume.service",
+    #"nvidia-hibernate.service",
+    #"ntpd.service",
 ]
 
 packages = [
@@ -119,14 +120,19 @@ packages = [
 
     # video drivers
     # =============
-    "xf86-video-amdgpu",
-    "nvidia-dkms", 
-    "nvidia-utils", 
-    "nvidia-settings", 
-    "nvidia-prime",
-    # "xf86-video-intel",
-    # "xf86-video-ati",
+    # "xf86-video-amdgpu",
+    
+    # "nvidia-dkms", 
+    # "nvidia-utils", 
+    # "nvidia-settings", 
+    # "nvidia-prime",
 
+    "mesa",
+    "lib32-mesa",
+    "vulkan-intel",
+    "lib32-vulkan-intel",
+    "xf86-video-intel",
+    
     # sound server
     # ============
     "pulseaudio",
