@@ -38,6 +38,10 @@ exec_cmd("pacman -Syyu " + " ".join(packages))
 exec_cmd(f"cd /tmp && sudo -u {username} git clone https://aur.archlinux.org/yay.git && cd yay && sudo -u {username} makepkg -si")
 exec_cmd(f"sudo -u {username} yay -S " + " ".join(aur))
 
+# for MacOS like font rendering
+with open('/etc/environment', 'a') as f:
+    f.write('FREETYPE_PROPERTIES="cff:no-stem-darkening=0 autofitter:no-stem-darkening=0"')
+
 exec_cmd("asusctl -c 60")
 
 exec_cmd(
